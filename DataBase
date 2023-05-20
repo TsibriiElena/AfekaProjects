@@ -1,0 +1,769 @@
+/*!40000 DROP DATABASE IF EXISTS `styling`*/;
+
+CREATE DATABASE `styling` DEFAULT CHARACTER SET utf8mb4;
+
+USE `styling`;
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `club_member`
+--
+
+DROP TABLE IF EXISTS `club_member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `club_member` (
+  `Id_number` int NOT NULL,
+  `Id_member` int NOT NULL,
+  `bday` date DEFAULT NULL,
+  PRIMARY KEY (`Id_member`,`Id_number`),
+  KEY `index1` (`Id_number`) /*!80000 INVISIBLE */,
+  CONSTRAINT `fk_cus` FOREIGN KEY (`Id_number`) REFERENCES `customers` (`Id_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `club_member`
+--
+
+LOCK TABLES `club_member` WRITE;
+/*!40000 ALTER TABLE `club_member` DISABLE KEYS */;
+INSERT INTO `club_member` VALUES (2,2006,'2022-09-20'),(1,20001,'2022-09-01'),(4,20062,'2022-09-16'),(8,20063,'2022-09-15'),(15,20522,'2022-08-19'),(3,20556,'2022-12-08'),(11,20725,'2022-08-06'),(9,20763,'2022-10-06'),(20,20787,'2022-08-02'),(18,201556,'2022-12-09');
+/*!40000 ALTER TABLE `club_member` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
+  `Id_number` int NOT NULL,
+  `First_name` varchar(50) DEFAULT NULL,
+  `Last_name` varchar(50) DEFAULT NULL,
+  `Street` varchar(50) DEFAULT NULL,
+  `City` varchar(50) DEFAULT NULL,
+  `Country` varchar(50) DEFAULT NULL,
+  `State` varchar(50) DEFAULT NULL,
+  `Postal_code` varchar(50) DEFAULT NULL,
+  `Phone_number` varchar(50) DEFAULT NULL,
+  `Email_adress` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Id_number`),
+  KEY `index` (`Id_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'Parrnell','Menghi','Sycamore','Poniklá','Czech Republic',NULL,'512 42','225-352-2905','pmenghi0@google.es'),(2,'Elisha','Nestoruk','Crest Line','Dagang','China',NULL,NULL,'917-924-8858','enestoruk1@techcrunch.com'),(3,'Lucienne','Loweth','Elmside','Nankou','China',NULL,NULL,'565-403-8014','lloweth2@cornell.edu'),(4,'Pammie','Kermott','Grayhawk','Nancheng','China',NULL,NULL,'365-911-7783','pkermott3@aol.com'),(5,'Fabe','Kleewein','Clemons','Grand Rapids','United States','Michigan','49518','616-783-9031','fkleewein4@prnewswire.com'),(6,'Darbie','Layton','Muir','Cilolohan','Indonesia',NULL,NULL,'655-265-4338','dlayton5@dion.ne.jp'),(7,'Mandie','Sambedge','Memorial','Puricay','Philippines',NULL,'9713','385-268-4624','msambedge6@cdbaby.com'),(8,'Raquela','Errigo','Continental','Lipsko','Poland',NULL,'27-300','469-458-0988','rerrigo7@dell.com'),(9,'Kylie','Gye','Menomonie','Lingdong','China',NULL,NULL,'989-410-8240','kgye8@geocities.jp'),(10,'Karol','Pawson','La Follette','Varazqān','Iran',NULL,NULL,'355-569-8658','kpawson9@wikipedia.org'),(11,'Brett','Derobert','Clemons','Tambakromo','Indonesia',NULL,NULL,'559-615-6773','bderoberta@sakura.ne.jp'),(12,'Malina','Fullwood','Monterey','Ḩātim','Jordan',NULL,NULL,'596-950-3942','mfullwoodb@trellian.com'),(13,'Fowler','Rotherforth','Mccormick','Tisco','Peru',NULL,NULL,'279-698-8369','frotherforthc@51.la'),(14,'Kathlin','Baddow','Lakewood Gardens','Niu','China',NULL,NULL,'923-378-1769','kbaddowd@instagram.com'),(15,'Denis','Welch','Linden','Vília','Greece',NULL,NULL,'312-867-0418','dwelche@ezinearticles.com'),(16,'Orbadiah','Fortune','Pearson','Rouen','France','Haute-Normandie','76101 CEDEX','585-657-3317','ofortunef@prweb.com'),(17,'Casandra','Laverock','Fisk','Cipeundeuy','Indonesia',NULL,NULL,'125-419-1162','claverockg@jimdo.com'),(18,'Yurik','Matthews','Eagan','Belos Ares','Portugal','Porto','4650-304','624-729-7659','ymatthewsh@istockphoto.com'),(19,'Cameron','Birtley','Pankratz','Kamieniec Wrocławski','Poland',NULL,'55-002','356-941-6955','cbirtleyi@typepad.com'),(20,'Veronika','Kett','Wayridge','Basel','Switzerland','Kanton Basel-Stadt','4055','325-199-7814','vkettj@globo.com');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:16
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `employee_orders`
+--
+
+DROP TABLE IF EXISTS `employee_orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employee_orders` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Employee_id` int NOT NULL,
+  `Order_number` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Order_number` (`Order_number`),
+  KEY `Employee_id` (`Employee_id`),
+  CONSTRAINT `employee_orders_ibfk_1` FOREIGN KEY (`Order_number`) REFERENCES `orders` (`Order_number`),
+  CONSTRAINT `employee_orders_ibfk_2` FOREIGN KEY (`Employee_id`) REFERENCES `employees` (`Employee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_orders`
+--
+
+LOCK TABLES `employee_orders` WRITE;
+/*!40000 ALTER TABLE `employee_orders` DISABLE KEYS */;
+INSERT INTO `employee_orders` VALUES (1,1,100),(2,1,101),(3,3,100),(4,4,102),(5,7,105),(6,5,101),(7,2,100),(9,2,1),(10,9,106),(11,8,103),(12,1,2),(13,1,3);
+/*!40000 ALTER TABLE `employee_orders` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:16
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employees` (
+  `Employee_id` int NOT NULL,
+  `First_name` varchar(50) DEFAULT NULL,
+  `Last_name` varchar(50) DEFAULT NULL,
+  `Phone_number` varchar(50) DEFAULT NULL,
+  `Email_adress` varchar(50) DEFAULT NULL,
+  `Job_Description` varchar(50) DEFAULT NULL,
+  `Departement` varchar(50) DEFAULT NULL,
+  `Manager_id` int DEFAULT NULL,
+  PRIMARY KEY (`Employee_id`),
+  KEY `index3` (`Employee_id`) /*!80000 INVISIBLE */,
+  KEY `fk_employee_idx` (`Manager_id`) /*!80000 INVISIBLE */,
+  CONSTRAINT `fk_employee` FOREIGN KEY (`Manager_id`) REFERENCES `employees` (`Employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (1,'Conway','Trunks','126-267-5745','ctrunks0@xinhuanet.com','Sales Associate','Purchasing',NULL),(2,'Valma','Benterman','197-133-3662','vbenterman1@geocities.jp','Chemical Engineer','Marketing',10),(3,'Wes','Vyse','295-642-5882','wvyse2@gnu.org','Account Coordinator','Customer Service',7),(4,'Murray','Jorczyk','451-362-5133','mjorczyk3@seesaa.net','Editor','Delivery',NULL),(5,'Eldin','Hainning','691-573-4293','ehainning4@virginia.edu','Project Manager','Marketing',10),(6,'Caitlin','Fratczak','718-444-4311','cfratczak5@godaddy.com','Accounting Assistant III','Purchasing',1),(7,'Andonis','Heasman','771-370-0118','aheasman6@ox.ac.uk','Automation Specialist III','Customer Service',NULL),(8,'Ram','Jekyll','855-175-3818','rjekyll7@stanford.edu','Librarian','Purchasing',1),(9,'Arabel','Cossey','838-181-7359','acossey8@opera.com','Senior Cost Accountant','Purchasing',1),(10,'Steven','Mayston','482-513-6309','smayston9@sohu.com','Project Manager','Marketing',NULL),(11,'Janette','Finlry','860-565-6305','jfinlry0@statcounter.com','Estimator','Delivery',4),(12,'Joye','Dunlap','932-365-7958','jdunlap1@springer.com','Senior Cost Accountant','Administration',15),(13,'Jacquenetta','Carmont','273-660-2388','jcarmont2@theglobeandmail.com','Surveyor','Reservation Center',14),(14,'Gertrude','Kirkhouse','443-501-1099','gkirkhouse3@bloglovin.com','Sales Associate','Reservation Center',NULL),(15,'Ravid','Ratt','261-522-4415','rratt4@sogou.com','Estimator','Administration',NULL),(16,'Amiram','Afeka','555-555-555','aafeka@afeka.ac.il','Manager','Delivery',4);
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `items_details`
+--
+
+DROP TABLE IF EXISTS `items_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `items_details` (
+  `Ing_id` int NOT NULL,
+  `Category` varchar(45) DEFAULT NULL,
+  `Color` varchar(45) DEFAULT NULL,
+  `Figure` varchar(45) DEFAULT NULL,
+  `Style` varchar(45) DEFAULT NULL,
+  `Purchased_price` int DEFAULT NULL,
+  `Sale_price` int DEFAULT NULL,
+  `Stock` int DEFAULT NULL,
+  `Supplier_id` int DEFAULT NULL,
+  PRIMARY KEY (`Ing_id`),
+  KEY `fk_suppliers_idx` (`Supplier_id`),
+  CONSTRAINT `fk_suppliers` FOREIGN KEY (`Supplier_id`) REFERENCES `suppliers` (`Supplier_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `items_details`
+--
+
+LOCK TABLES `items_details` WRITE;
+/*!40000 ALTER TABLE `items_details` DISABLE KEYS */;
+INSERT INTO `items_details` VALUES (1,'Shoes','Black',NULL,'Casual',40,50,10,5),(2,'Shoes','White',NULL,'Boots',50,80,5,5),(3,'Dress','White','Tight','Evening',80,100,20,9),(4,'Dress','Purple','Mini','Evening',80,90,16,10),(5,'Shirt','White','Tank Top','Casual',45,50,25,1),(6,'Shirt','Blue','T-shirt','Casual',40,50,30,2),(7,'Jeans','Blue','High Waist','Casual',50,70,8,2),(8,'Jeans','Blue','Mid Waist','Casual',60,70,7,7),(9,'Jeans','Black','Boyfriend','Casual',50,80,13,11),(10,'Jeans','Black','Low Waist','Casual',60,80,14,15);
+/*!40000 ALTER TABLE `items_details` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `new_members`
+--
+
+DROP TABLE IF EXISTS `new_members`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `new_members` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_member` int NOT NULL,
+  `join_date` datetime DEFAULT NULL,
+  `Email_adress` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `new_members`
+--
+
+LOCK TABLES `new_members` WRITE;
+/*!40000 ALTER TABLE `new_members` DISABLE KEYS */;
+INSERT INTO `new_members` VALUES (1,201556,'2022-08-30 10:18:15','ymatthewsh@istockphoto.com');
+/*!40000 ALTER TABLE `new_members` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order_items` (
+  `Order_number` int NOT NULL,
+  `Ing_id` int NOT NULL,
+  `Amount` int DEFAULT NULL,
+  PRIMARY KEY (`Order_number`,`Ing_id`),
+  KEY `fk_item_idx` (`Ing_id`),
+  CONSTRAINT `fk_item` FOREIGN KEY (`Ing_id`) REFERENCES `items_details` (`Ing_id`),
+  CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`Order_number`) REFERENCES `orders` (`Order_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_items`
+--
+
+LOCK TABLES `order_items` WRITE;
+/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+INSERT INTO `order_items` VALUES (1,5,15),(2,6,31),(3,6,7),(100,3,25),(101,3,10),(102,3,5),(103,9,7),(104,9,6),(105,7,12),(106,7,7);
+/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:16
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `Order_number` int NOT NULL,
+  `Order_date` date DEFAULT NULL,
+  `Status` varchar(45) DEFAULT NULL,
+  `Payment_method` varchar(45) DEFAULT NULL,
+  `Id_number` int NOT NULL,
+  PRIMARY KEY (`Order_number`),
+  KEY `index1` (`Order_number`),
+  CONSTRAINT `orders_chk_1` CHECK (((`Payment_method` = _utf8mb4'PayPal') or (`Payment_method` = _utf8mb4'Visa') or (`Payment_method` = _utf8mb4'Bit') or (`Payment_method` = _utf8mb4'MasterCard')))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,'2022-08-27','Finished','Bit',1),(2,'2022-08-27','Shipped','PayPal',15),(3,'2022-07-21','Delivered','MasterCard',8),(100,'2022-07-21','Delivered','MasterCard',8),(101,'2022-08-21','Delivered','MasterCard',3),(102,'2022-08-27','In Progress','Bit',3),(103,'2022-08-21','Shipped','PayPal',5),(104,'2022-08-29','Returned','Visa',20),(105,'2022-08-01','Returned','Visa',6),(106,'2022-07-01','Returned','Visa',8);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Temporary view structure for view `bill`
+--
+
+DROP TABLE IF EXISTS `bill`;
+/*!50001 DROP VIEW IF EXISTS `bill`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `bill` AS SELECT 
+ 1 AS `order_number`,
+ 1 AS `id_number`,
+ 1 AS `ing_id`,
+ 1 AS `amount`,
+ 1 AS `sale_price`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `sales`
+--
+
+DROP TABLE IF EXISTS `sales`;
+/*!50001 DROP VIEW IF EXISTS `sales`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `sales` AS SELECT 
+ 1 AS `ing_id`,
+ 1 AS `supplier_id`,
+ 1 AS `amount`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `member_mail`
+--
+
+DROP TABLE IF EXISTS `member_mail`;
+/*!50001 DROP VIEW IF EXISTS `member_mail`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `member_mail` AS SELECT 
+ 1 AS `Id_number`,
+ 1 AS `First_name`,
+ 1 AS `Last_name`,
+ 1 AS `Email_adress`,
+ 1 AS `Bday`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `bill`
+--
+
+/*!50001 DROP VIEW IF EXISTS `bill`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `bill` (`order_number`,`id_number`,`ing_id`,`amount`,`sale_price`) AS select `orders`.`Order_number` AS `order_number`,`orders`.`Id_number` AS `id_number`,`order_items`.`Ing_id` AS `ing_id`,`order_items`.`Amount` AS `amount`,`items_details`.`Sale_price` AS `sale_price` from ((`orders` join `order_items` on((`orders`.`Order_number` = `order_items`.`Order_number`))) join `items_details` on((`items_details`.`Ing_id` = `order_items`.`Ing_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `sales`
+--
+
+/*!50001 DROP VIEW IF EXISTS `sales`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `sales` (`ing_id`,`supplier_id`,`amount`) AS select `order_items`.`Ing_id` AS `ing_id`,`items_details`.`Supplier_id` AS `supplier_id`,`order_items`.`Amount` AS `amount` from (`items_details` join `order_items` on((`items_details`.`Ing_id` = `order_items`.`Ing_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `member_mail`
+--
+
+/*!50001 DROP VIEW IF EXISTS `member_mail`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `member_mail` (`Id_number`,`First_name`,`Last_name`,`Email_adress`,`Bday`) AS select `c`.`Id_number` AS `id_number`,`c`.`First_name` AS `first_name`,`c`.`Last_name` AS `last_name`,`c`.`Email_adress` AS `email_adress`,`m`.`bday` AS `bday` from (`customers` `c` join `club_member` `m` on((`c`.`Id_number` = `m`.`Id_number`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:16
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `shipment_info`
+--
+
+DROP TABLE IF EXISTS `shipment_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `shipment_info` (
+  `Shipment_number` int NOT NULL,
+  `Estimated_delivery_date` int DEFAULT NULL,
+  `Shipment_method` varchar(45) DEFAULT NULL,
+  `Order_number` int NOT NULL,
+  PRIMARY KEY (`Shipment_number`,`Order_number`),
+  KEY `index` (`Shipment_number`),
+  KEY `Order_number` (`Order_number`),
+  CONSTRAINT `shipment_info_ibfk_1` FOREIGN KEY (`Order_number`) REFERENCES `orders` (`Order_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipment_info`
+--
+
+LOCK TABLES `shipment_info` WRITE;
+/*!40000 ALTER TABLE `shipment_info` DISABLE KEYS */;
+INSERT INTO `shipment_info` VALUES (1,7,'delivery',1),(2,7,'pickup',2),(3,7,'Collecting point',100),(10,7,'Collecting point',101),(11,7,'pickup',102),(20,7,'delivery',103),(25,7,'delivery',104),(27,7,'delivery',105),(28,7,'pickup',106),(30,7,'collecting point',3);
+/*!40000 ALTER TABLE `shipment_info` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `status_return`
+--
+
+DROP TABLE IF EXISTS `status_return`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `status_return` (
+  `Id` int NOT NULL AUTO_INCREMENT,
+  `Order_number` int DEFAULT NULL,
+  `Product_id` int DEFAULT NULL,
+  `Amount` int DEFAULT NULL,
+  `Supplier_id` int DEFAULT NULL,
+  `Sale_price` int DEFAULT NULL,
+  `Update_date` date DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `status_return`
+--
+
+LOCK TABLES `status_return` WRITE;
+/*!40000 ALTER TABLE `status_return` DISABLE KEYS */;
+INSERT INTO `status_return` VALUES (1,104,9,6,11,80,'2022-08-30'),(19,105,7,12,2,70,'2022-08-30'),(20,106,7,7,2,70,'2022-08-30');
+/*!40000 ALTER TABLE `status_return` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
+
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: styling
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `suppliers` (
+  `Supplier_id` int NOT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  `Street` varchar(50) DEFAULT NULL,
+  `City` varchar(50) DEFAULT NULL,
+  `Country` varchar(50) DEFAULT NULL,
+  `State` varchar(50) DEFAULT NULL,
+  `Postal_code` varchar(50) DEFAULT NULL,
+  `Phone_number` varchar(50) DEFAULT NULL,
+  `Email_adress` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Supplier_id`),
+  KEY `index2` (`Supplier_id`) /*!80000 INVISIBLE */
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+LOCK TABLES `suppliers` WRITE;
+/*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
+INSERT INTO `suppliers` VALUES (1,'ADVANCED CELL BOOSTING EX EYE','Waywood','Lâm Thao','Vietnam',NULL,NULL,'612-264-7120','ffilpi0@army.mil'),(2,'Gas Relief','Maple','Lota','Chile',NULL,NULL,'894-495-6005','jpiggot1@amazon.com'),(3,'Lansoprazole','Green','San Juan','Peru',NULL,NULL,'437-516-6183','arodriguez2@home.pl'),(4,'Betamethasone Valerate','Darwin','Mutatá','Colombia',NULL,'057428','746-166-5925','tbuncombe3@ed.gov'),(5,'Cevimeline','Fisk','Oepula','Indonesia',NULL,NULL,'198-222-8204','ratrill4@mit.edu'),(6,'Nandrolone Decanoate','Messerschmidt','Barrinha','Brazil',NULL,'14860-000','464-257-8481','gmyford5@usa.gov'),(7,'Secret Scent Expresssions Invisible','Meadow Valley','Nouméa','New Caledonia',NULL,'98800','344-916-1913','ecamamile6@samsung.com'),(8,'Bupivacaine Hydrochloride','Lindbergh','Bayeux','Brazil',NULL,'58305-000','159-470-6920','dwadhams7@xing.com'),(9,'Puri-San Plus','Sullivan','Sutton','United Kingdom','England','RH5','998-736-0268','dmaciaszek8@clickbank.net'),(10,'Sinus Congestion and Pain','Anniversary','Quilmaná','Peru',NULL,NULL,'712-344-6806','mjoerning9@woothemes.com'),(11,'Pure Snow whitening','North','Sinhyeon','South Korea',NULL,NULL,'761-891-7542','cmcturleya@squarespace.com'),(12,'FENTANYL CITRATE','Mandrake','Paris 18','France','Île-de-France','75879 CEDEX 18','328-437-6803','jharcombeb@reddit.com'),(13,'Flawless by Sonya Aloe BB Creme','Swallow','Желино','Macedonia',NULL,'1228','157-776-3715','fdekeepc@addthis.com'),(14,'HYDROCODONE BITARTRATE AND ACETAMINOPHEN','Transport','Luzhou','China',NULL,NULL,'887-396-3021','mferruzzid@intel.com'),(15,'COUMADIN','Bashford','Laka','Indonesia',NULL,NULL,'760-461-7291','mballsdone@cpanel.net'),(16,'Lancome Teint Miracle','Talmadge','Juan Adrián','Dominican Republic',NULL,'11506','166-592-8887','imordief@nymag.com');
+/*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30 19:51:15
